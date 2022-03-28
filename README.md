@@ -57,9 +57,12 @@ SPECIAL_CONSIDERATIONS_N
 SPECIAL_CONSIDERATIONS_Y        
  
   * Preprocessed the dataset:  We used Pandas and the Scikit-Learn’s StandardScaler(). Scikit-Learn's StandardScaler() was used to standardize the numerical data such that the variables were rescaled to a mean of 0 and standard deviation of 1. Once the data was standarized we were able to transform and standardize the dataset. Once we had our transformed data within the StandardScaler instance, we exported the transformed data into a Pandas Dataframe and passed to our neural network model 
+
+
 * Compile, Train, and Evaluate the Model
 * The neural network model using TensorFlow Karas contains working code that performs the following steps:
-1.	The number of layers, the number of neurons per layer, and activation function are defined 
+1.	We used 3 layers (input, hidden, and output), We had 80 number of neurons in input layer, 30 in the hidden layer, The rule of thumb is to have the amount of input variables x2 or 3 for you number or neurons. The activation function we used for input and hidden layers was the ReLU function. it returns a value from 0 to infinity, it is the most common and is default function. We used the sigmoid funciton for our output layer becasue it determines probability and transforms output to a range between 0 and 1. 
+
 
 2.	An output layer with an activation function is created ouput from structure of model.
 ![structure of model](https://user-images.githubusercontent.com/94208810/160459328-de1c2cb2-1dd3-48e7-92b8-eda70ade1e95.png)
