@@ -82,11 +82,15 @@ SPECIAL_CONSIDERATIONS_Y
  
 * Optimize the Model (did one of these by creating 3 different attempts)
 * Here are a few means of optimizing a neural network:
+
 First Attempt: 
 Noisy Variables are removed from features(“STATUS” and “SPECIAL_CONSIDERATIONS”
 Added 30 more neurons to a hidden layer2. 
 Models weights are saved every 5 epochs. 
-Output showed a decrease in accuracy so no benefit of accuracy at .7247.  
+Output showed a decrease in accuracy so no benefit of accuracy at .7247. 
+![optimization attempt1](https://user-images.githubusercontent.com/94208810/160460432-f0273e4b-52ce-4857-a300-65741bd7c1bc.png)
+ 
+
 Second Attempt: 
 Added 40 more neurons to a hidden layer1 and kept hiddenlayer2 at 60. 
 Use a different activation function for the hidden layers from “ReLU” to “Sigmoid”. 
@@ -100,7 +104,8 @@ Third Attempt:
 Added  additional hidden layers with activation function of “ReLU” and neurons at 30.
 Add additional epochs to the training regimen by increasing from 100 epochs to 200. 
 Models weights are saved every 5 epochs. 
-The accuracy increased mildly from original with a accuracy of .7260
+The accuracy increased mildly from original with a accuracy of .7261
+![optimizationattempt3](https://user-images.githubusercontent.com/94208810/160460342-b03c1438-a03a-4d2d-9389-3512f679730d.png)
 
 ## Summary
 The overall results of the deep learning model and the recommendations I have for how a different model that could solve this classification problem would be decision trees, random forests, and gradient-boosted trees because they are used to solve classification problems.
