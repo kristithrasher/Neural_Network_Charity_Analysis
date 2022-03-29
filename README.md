@@ -10,6 +10,7 @@ Purpose is to predict whether applicants will be successful if funded by Alphabe
 * Preprocessing Data for a Neural Network Model
 *Read in the charity_data.csv to a Pandas DataFrame, and be sure to identify the following in your  dataset:
   	*IS_SUCCESSFUL variable is the target(s) for our model.
+    We dropped the EIN and NAME columns from our list of features due to be unuseful for this project. 
  	 *The following variables are considered the features for our model. 44 total. 
 STATUS                            
 ASK_AMT                           
@@ -54,9 +55,11 @@ INCOME_AMT_50M+
 INCOME_AMT_5M-10M               
 INCOME_AMT_Jan-99               
 SPECIAL_CONSIDERATIONS_N        
-SPECIAL_CONSIDERATIONS_Y        
+SPECIAL_CONSIDERATIONS_Y  
+
  
-  * Preprocessed the dataset:  We used Pandas and the Scikit-Learn’s StandardScaler(). Scikit-Learn's StandardScaler() was used to standardize the numerical data such that the variables were rescaled to a mean of 0 and standard deviation of 1. Once the data was standarized we were able to transform and standardize the dataset. Once we had our transformed data within the StandardScaler instance, we exported the transformed data into a Pandas Dataframe and passed to our neural network model 
+  * Preprocessed the dataset:  We used Pandas and the Scikit-Learn’s StandardScaler(). Scikit-Learn's StandardScaler() was used to            standardize the numerical data such that the variables were rescaled to a mean of 0 and standard deviation of 
+   Once the data was standarized we were able to transform and standardize the dataset. Once we had our transformed data within the            StandardScaler instance, we exported the transformed data into a Pandas Dataframe and passed to our neural network model 
 
 
 * Compile, Train, and Evaluate the Model
@@ -84,32 +87,48 @@ SPECIAL_CONSIDERATIONS_Y
 
  
 * Optimize the Model (did one of these by creating 3 different attempts)
-* Here are a few means of optimizing a neural network:
+The following attempts shown below are the different ways we tried to increase the models performance. 
 
-First Attempt: 
-Noisy Variables are removed from features(“STATUS” and “SPECIAL_CONSIDERATIONS”
-Added 30 more neurons to a hidden layer2. 
+### First Attempt: 
+Noisy Variables are removed from features EIN", "NAME
+Added a hidden layer. 
 Models weights are saved every 5 epochs. 
-Output showed a decrease in accuracy so no benefit of accuracy at .7247. 
-![optimization attempt1](https://user-images.githubusercontent.com/94208810/160460432-f0273e4b-52ce-4857-a300-65741bd7c1bc.png)
- 
+Dropped epochs from 100 to 50
+Output showed a dncrease in accuracy so a benefit of accuracy and loss 
+Loss: 0.5606905221939087, Accuracy: 0.7251312136650085
+Saved and export our model to NDFS file
+nn.save("Trained_Model/AlphabetSoupCharity_OptimizationD3-1.h5")
 
-Second Attempt: 
-Added 40 more neurons to a hidden layer1 and kept hiddenlayer2 at 60. 
+ ![optimization attempt1](https://user-images.githubusercontent.com/94208810/160633748-68eb4ed8-a2fe-424a-9450-5c55edf5ed8f.png)
+
+
+### Second Attempt: 
+Noisy Variables are removed from features EIN", "NAME and "STATUS", "SPECIAL_CONSIDERATIONS" 
+Added 20 more neurons to a hidden layer2. 
 Use a different activation function for the hidden layers from “ReLU” to “Sigmoid”. 
-Add additional epochs to the training regimen by increasing from 100 epochs to 150.
+Kept epochs at 50.
 Models weights are saved every 5 epochs. 
-The accuracy was lower than original with these changes so no benefit to my changes with accuracy at .72489
+The accuracy was higher than original with these changes a benefit to my changes with accuracy and loss 
+Loss: 0.5535838603973389, Accuracy: 0.726064145565033
+Saved callbacks # Save and export our model to NDFS file
+nn.save("Trained_Model/AlphabetSoupCharity_OptimizationD3-2.h5")
+
+![optimization attempt2](https://user-images.githubusercontent.com/94208810/160633707-130f2308-4bef-4287-b893-51056fc4776e.png)
 
 
-Third Attempt: 
-
-Added  additional hidden layers with activation function of “ReLU” and neurons at 30.
-Add additional epochs to the training regimen by increasing from 100 epochs to 200. 
+### Third Attempt: 
+Noisy Variables are removed from features EIN", "NAME and "STATUS", "SPECIAL_CONSIDERATIONS" 
+Increased epochs to 60. 
 Models weights are saved every 5 epochs. 
-The accuracy increased mildly from original with a accuracy of .7261
-![optimizationattempt3](https://user-images.githubusercontent.com/94208810/160460342-b03c1438-a03a-4d2d-9389-3512f679730d.png)
+Saved and export our model to NDFS file
+nn.save("Trained_Model/AlphabetSoupCharity_OptimizationD3-3.h5")
+The accuracy was higher than original with these changes a benefit to my changes with accuracy and loss 
+Loss: 0.5540692210197449, Accuracy: 0.7265306115150452
+
+![optimizationattempt3](https://user-images.githubusercontent.com/94208810/160633658-37aff560-d612-4849-bdb7-091cf8960161.png)
+
+Note: We were able to increase models performance a little bit but unable to achieve the 75% level of accuracy. 
 
 ## Summary
-The overall results of the deep learning model and the recommendations I have for how a different model that could solve this classification problem would be decision trees, random forests, and gradient-boosted trees because they are used to solve classification problems.
+The Loss is considered better the lower it is and the better te mnodel is by a lower loss. Accuracy of a model is your models prediction compared to true data or ture targets. Percentage of accuracy. The overall results of the deep learning model and the recommendations I have for how a different model that could solve this classification problem would be random forests, and gradient-boosted trees because they are used to solve classification problems.
 
